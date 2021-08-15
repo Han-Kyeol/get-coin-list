@@ -1,11 +1,11 @@
 interface CoinInfoInTable {
   isBookmarked: boolean;
   name: string;
-  currency: 'KRW' | 'USD';
+  symbol: string;
   price: string;
-  oneHourPercent: number;
-  oneDayPercent: number;
-  oneWeekPercent: number;
+  oneHourPercent: string;
+  oneDayPercent: string;
+  oneWeekPercent: string;
   oneDayVolume: string;
 }
 
