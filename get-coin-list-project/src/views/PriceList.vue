@@ -9,13 +9,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import CoinInfoInTable from '@/interfaces/CoinInfoInTable';
+import CoinInfoInTable from '@/models/feature/CoinInfoInTable';
 import CoinListTable from '@/components/CoinListTable.vue';
+import { IPriceListPresentation, PriceListPresentation } from '@/presentations/PriceListPresentation';
 
 @Component({
   components: { CoinListTable },
 })
 export default class PriceList extends Vue {
+  priceListPresentation: IPriceListPresentation = new PriceListPresentation()
+
   mockTableData: Array<CoinInfoInTable> = [
     {
       isBookmarked: true,
@@ -28,5 +31,9 @@ export default class PriceList extends Vue {
       oneDayVolume: '₩ 41,496,323,888,705',
     },
   ]
+
+  async created(): Promise<void> {
+    await this.priceListPresentation.getCoinMarketsTable({ vs_currency: 'USD', page: 1 });
+  }
 }
 </script>

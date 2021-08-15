@@ -31,7 +31,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
-import CoinInfoInTable from '@/interfaces/CoinInfoInTable';
+import CoinInfoInTable from '@/models/feature/CoinInfoInTable';
 
 @Component
 export default class CoinListTable extends Vue {
