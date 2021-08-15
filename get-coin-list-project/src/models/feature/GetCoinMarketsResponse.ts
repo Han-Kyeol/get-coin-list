@@ -30,6 +30,7 @@ interface GetCoinMarketsResponse {
   symbol: string
   total_supply: number
   total_volume: number
+  price_change_percentage_1h_in_currency: number
 }
 
 export default GetCoinMarketsResponse;

@@ -6,7 +6,7 @@ interface CoinInfoInTable {
   oneHourPercent: string;
   oneDayPercent: string;
   oneWeekPercent: string;
-  oneDayVolume: string;
+  totalVolume: string;
 }
 
 export default CoinInfoInTable;
