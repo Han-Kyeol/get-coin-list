@@ -1,5 +1,14 @@
 <template>
   <div class="price-list-view">
+    <select
+      name="currencies"
+      id="currency-select"
+      v-model="currency"
+      @change="onChangeSelect($event)"
+    >
+      <option value="KRW">KRW 보기</option>
+      <option value="USD">USD 보기</option>
+    </select>
     <CoinListTable
       :coin-table-list="tableData"
     />
@@ -21,8 +30,28 @@ export default class PriceList extends Vue {
 
   tableData: Array<CoinInfoInTable> = []
 
+  currency = 'KRW'
+
+  page = 1
+
+  async setTableData(): Promise<void> {
+    this.tableData = await this.priceListPresentation.getCoinMarketsTable(
+      {
+        vs_currency: this.currency,
+        page: this.page,
+      },
+    );
+  }
+
   async created(): Promise<void> {
-    this.tableData = await this.priceListPresentation.getCoinMarketsTable({ vs_currency: 'USD', page: 1 });
+    await this.setTableData();
+  }
+
+  async onChangeSelect(event: Event): Promise<void> {
+    this.currency = (event.target as HTMLInputElement).value;
+    this.page = 1;
+
+    await this.setTableData();
   }
 }
 </script>

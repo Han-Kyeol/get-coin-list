@@ -29,9 +29,9 @@ export class PriceListPresentation implements IPriceListPresentation {
       name: info.name,
       symbol: info.symbol,
       price: this.parseDecimalPlace(info.current_price, 2),
-      oneHourPercent: this.parseDecimalPlace(info.price_change_percentage_1h_in_currency, 2),
-      oneDayPercent: this.parseDecimalPlace(info.price_change_percentage_24h, 2),
-      oneWeekPercent: '100',
+      oneHourPercent: `${this.parseDecimalPlace(info.price_change_percentage_1h_in_currency, 2)}%`,
+      oneDayPercent: `${this.parseDecimalPlace(info.price_change_percentage_24h, 2)}%`,
+      oneWeekPercent: '100%',
       totalVolume: `${info.total_volume.toLocaleString()}`,
     }))
 }
