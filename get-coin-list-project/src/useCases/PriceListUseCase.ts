@@ -9,7 +9,7 @@ export interface IPriceListUseCase {
 export class PriceListUseCase implements IPriceListUseCase {
   getCoinMarketsGateway: IGetCoinMarkets = new GetCoinMarkets()
 
-  getCoinMarkets = async (param: GetCoinMarketsParams): Promise<Array<GetCoinMarketsResponse>> => {
+  async getCoinMarkets(param: GetCoinMarketsParams): Promise<Array<GetCoinMarketsResponse>> {
     const response: Array<GetCoinMarketsResponse> = await this.getCoinMarketsGateway.request(param);
 
     return response;

@@ -5,7 +5,6 @@ interface CoinInfoInTable {
   price: string;
   oneHourPercent: string;
   oneDayPercent: string;
-  oneWeekPercent: string;
   totalVolume: string;
 }
 

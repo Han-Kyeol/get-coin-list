@@ -12,6 +12,9 @@
     <CoinListTable
       :coin-table-list="tableData"
     />
+    <button class="show-more-btn" type="button" @click="onClickShowMore">
+      더 보기
+    </button>
   </div>
 </template>
 
@@ -52,6 +55,10 @@ export default class PriceList extends Vue {
     this.page = 1;
 
     await this.setTableData();
+  }
+
+  async onClickShowMore(): Promise<void> {
+    console.log('run');
   }
 }
 </script>

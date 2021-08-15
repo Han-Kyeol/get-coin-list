@@ -8,7 +8,7 @@ export interface IGetCoinMarkets {
 export class GetCoinMarkets implements IGetCoinMarkets {
   PER_PAGE = 50
 
-  request = async (param: GetCoinMarketsParams): Promise<Array<GetCoinMarketsResponse>> => {
+  async request(param: GetCoinMarketsParams): Promise<Array<GetCoinMarketsResponse>> {
     const url = new URL('https://api.coingecko.com/api/v3/coins/markets');
     url.search = new URLSearchParams({
       vs_currency: param.vs_currency,
