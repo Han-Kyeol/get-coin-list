@@ -1,5 +1,4 @@
 import GetCoinMarketsParams from '@/models/feature/GetCoinMarketsParams';
-import ApiResponse from '@/models/shared/ApiResponse';
 
 export interface IGetCoinMarkets {
   request (param: GetCoinMarketsParams): Promise<any>
@@ -15,7 +14,14 @@ export class GetCoinMarkets implements IGetCoinMarkets {
       order: 'market_cap_desc',
       per_page: `${this.PER_PAGE}`,
     }).toString();
-    const res = await fetch(url.toString());
-    console.log(await res.json());
+    const response = await fetch(url.toString());
+
+    if (response.status !== 200) {
+      throw new Error(`${response.status}`);
+    }
+
+    const getCoinMarketsResponse = await response.json();
+
+    return getCoinMarketsResponse;
   }
 }
