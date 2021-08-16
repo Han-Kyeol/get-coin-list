@@ -5,33 +5,6 @@
     position: absolute;
     right: 0;
   }
-  .coin-list-table {
-    padding-top: 40px;
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      tr {
-        border-bottom: 1px solid rgba($color: #888888, $alpha: 0.3);
-        height: 50px;
-        vertical-align: middle;
-      }
-      th {
-        background-color: rgba($color: #888888, $alpha: 0.2);
-        color: grey;
-        font-weight: bold;
-      }
-      td {
-        border-bottom: 1px grey;
-      }
-      .align-right {
-        text-align: right;
-      }
-      .bold {
-        font-weight: bold;
-      }
-    }
-  }
   .show-more-btn {
     border: none;
     border-bottom: 1px solid rgba($color: #888888, $alpha: 0.3);

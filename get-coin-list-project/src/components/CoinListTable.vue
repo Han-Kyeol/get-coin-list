@@ -18,9 +18,18 @@
         <td class="bold">{{ info.name }}</td>
         <td>{{ info.symbol }}</td>
         <td class="align-right bold">{{ info.price }}</td>
-        <td class="align-right bold">{{ info.oneHourPercent }}</td>
-        <td class="align-right bold">{{ info.oneDayPercent }}</td>
-        <td class="align-right bold">{{ info.oneWeekPercent }}</td>
+        <td :class="{
+          'align-right': true,
+          'bold': true,
+          'ascending': isAscendingPercent(info.oneHourPercent),
+          'descending': !isAscendingPercent(info.oneHourPercent)
+          }">{{ info.oneHourPercent }}</td>
+        <td :class="{
+          'align-right': true,
+          'bold': true,
+          'ascending': isAscendingPercent(info.oneDayPercent),
+          'descending': !isAscendingPercent(info.oneDayPercent)
+          }">{{ info.oneDayPercent }}</td>
         <td class="align-right bold">{{ info.oneDayVolume }}</td>
       </tr>
     </table>
@@ -35,5 +44,9 @@ import CoinInfoInTable from '@/models/feature/CoinInfoInTable';
 @Component
 export default class CoinListTable extends Vue {
   @Prop() coinTableList!: Array<CoinInfoInTable>
+
+  isAscendingPercent(value: string): boolean {
+    return !value.includes('-');
+  }
 }
 </script>
