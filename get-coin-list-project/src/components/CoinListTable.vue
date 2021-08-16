@@ -1,5 +1,6 @@
 <template>
   <div class="coin-list-table">
+    <CoinInfoModal v-if="isShown" :coin-name="selectedCoinName" @close="onCloseModal"/>
     <table>
       <tr>
         <th></th>
@@ -20,7 +21,11 @@
             <font-awesome-icon v-else :icon="['far', 'star']" />
           </p>
         </td>
-        <td class="bold">{{ info.name }}</td>
+        <td class="bold">
+          <p @click="onClickName(info.name)">
+            {{ info.name }}
+          </p>
+          </td>
         <td>{{ info.symbol }}</td>
         <td class="align-right bold">{{ info.price }}</td>
         <td :class="{
@@ -45,10 +50,17 @@
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import CoinInfoInTable from '@/models/feature/CoinInfoInTable';
+import CoinInfoModal from '@/components/CoinInfoModal.vue';
 
-@Component
+@Component({
+  components: { CoinInfoModal },
+})
 export default class CoinListTable extends Vue {
   @Prop() coinTableList!: Array<CoinInfoInTable>
+
+  isShown = false
+
+  selectedCoinName = ''
 
   isAscendingPercent(value: string): boolean {
     return !value.includes('-');
@@ -77,6 +89,16 @@ export default class CoinListTable extends Vue {
     }
 
     this.$emit('bookMarkClicked');
+  }
+
+  onClickName(name: string): void {
+    this.selectedCoinName = name;
+
+    this.isShown = true;
+  }
+
+  onCloseModal(): void {
+    this.isShown = false;
   }
 }
 </script>

@@ -23,6 +23,7 @@ export class GetCoinMarkets implements IGetCoinMarkets {
     const response = await fetch(url.toString());
 
     if (response.status !== 200) {
+      store.commit('disableLoading');
       throw new Error(`${response.status}`);
     }
 
