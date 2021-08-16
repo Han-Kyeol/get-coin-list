@@ -71,6 +71,8 @@ npm run lint
 
 ### **fontawesome**
 
+아이콘 등의 사용을 보다 쉽게 하는 라이브러리. 공식 Vue.js component를 갖고 있고, 가장 영향력 있는 무료 아이콘 제공처로 꼽힌다.
+
 ### **sass**
 
 ### **vuex**
