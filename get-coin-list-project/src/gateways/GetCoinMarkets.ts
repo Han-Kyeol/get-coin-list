@@ -19,7 +19,6 @@ export class GetCoinMarkets implements IGetCoinMarkets {
       page: `${param.page}`,
       price_change_percentage: '1h, 24h, 7d',
     }).toString();
-    console.log('run');
     const response = await fetch(url.toString());
 
     if (response.status !== 200) {

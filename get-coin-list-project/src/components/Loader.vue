@@ -12,7 +12,6 @@ import store from '@/store';
 @Component
 export default class Loader extends Vue {
   get isLoading(): boolean {
-    console.log(store.state.isLoading);
     return store.state.isLoading;
   }
 }
