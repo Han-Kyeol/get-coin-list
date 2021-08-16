@@ -8,7 +8,7 @@
         <th class="align-right">Price</th>
         <th class="align-right">1H</th>
         <th class="align-right">24H</th>
-        <th class="align-right">24H Volume</th>
+        <th class="align-right">Total Volume</th>
       </tr>
       <tr
         :key="info.name"
@@ -30,7 +30,7 @@
           'ascending': isAscendingPercent(info.oneDayPercent),
           'descending': !isAscendingPercent(info.oneDayPercent)
           }">{{ info.oneDayPercent }}</td>
-        <td class="align-right bold">{{ info.oneDayVolume }}</td>
+        <td class="align-right bold">{{ info.totalVolume }}</td>
       </tr>
     </table>
   </div>
