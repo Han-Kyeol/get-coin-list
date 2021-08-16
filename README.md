@@ -1,5 +1,23 @@
 # get-coin-list-project
 
+## Project Structure
+
+```
+.
++-- src
+| +-- assets
+| +-- components
+| +-- gateways
+| +-- models
+| +-- presentations
+| +-- router
+| +-- store
+| +-- useCases
+| +-- views
+| +-- App.vue
+| +-- main.ts
+```
+
 ## Project setup
 
 ```
