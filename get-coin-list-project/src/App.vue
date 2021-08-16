@@ -1,9 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">가상자산 시세목록</router-link> |
-      <router-link to="/bookMarkList">북마크 목록</router-link>
-    </div>
+    <Nav />
     <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+import Nav from '@/components/Nav.vue';
+
+@Component({
+  components: { Nav },
+})
+export default class App extends Vue {
+
+}
+</script>
