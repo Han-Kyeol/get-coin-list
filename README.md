@@ -89,6 +89,8 @@ Vue.js 애플리케이션에 대한 상태 관리 패턴 라이브러리. Vue의
 
 - coingecko의 API의 param 내 price_change_percentage에 7d를 추가하여도, response로 관련된 정보가 내려오지 않아 해당 정보 제외
 
+- 24H volume과 관련된 response를 발견하지 못해, 해당 내용 total volume으로 대체
+
 - WikiPedia의 국문 버전 API를 찾지 못해, 모두 영문 API를 통한 검색으로 진행
 
 ### Customize configuration
