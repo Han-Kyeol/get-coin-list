@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component, Watch } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 import CoinInfoInTable from '@/models/feature/CoinInfoInTable';
 import CoinListTable from '@/components/CoinListTable.vue';
 import { IPriceListPresentation, PriceListPresentation } from '@/presentations/PriceListPresentation';

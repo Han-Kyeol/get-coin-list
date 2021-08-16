@@ -1,2 +1,18 @@
 @import "reset";
 @import "priceListView";
+
+#nav {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  height: 40px;
+  line-height: 40px;
+  a {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle;
+    line-height: normal;
+    &.active {
+      font-weight: bold;
+    }
+  }
+}

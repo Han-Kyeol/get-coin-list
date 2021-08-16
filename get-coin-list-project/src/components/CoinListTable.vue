@@ -5,23 +5,23 @@
         <th></th>
         <th>자산</th>
         <th></th>
-        <th>Price</th>
-        <th>1H</th>
-        <th>24H</th>
-        <th>24H Volume</th>
+        <th class="align-right">Price</th>
+        <th class="align-right">1H</th>
+        <th class="align-right">24H</th>
+        <th class="align-right">24H Volume</th>
       </tr>
       <tr
         :key="info.name"
         v-for="info in coinTableList"
       >
         <td>{{ info.isBookmarked }}</td>
-        <td>{{ info.name }}</td>
+        <td class="bold">{{ info.name }}</td>
         <td>{{ info.symbol }}</td>
-        <td>{{ info.price }}</td>
-        <td>{{ info.oneHourPercent }}</td>
-        <td>{{ info.oneDayPercent }}</td>
-        <td>{{ info.oneWeekPercent }}</td>
-        <td>{{ info.oneDayVolume }}</td>
+        <td class="align-right bold">{{ info.price }}</td>
+        <td class="align-right bold">{{ info.oneHourPercent }}</td>
+        <td class="align-right bold">{{ info.oneDayPercent }}</td>
+        <td class="align-right bold">{{ info.oneWeekPercent }}</td>
+        <td class="align-right bold">{{ info.oneDayVolume }}</td>
       </tr>
     </table>
   </div>
