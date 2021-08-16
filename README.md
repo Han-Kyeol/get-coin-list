@@ -69,10 +69,10 @@ npm run lint
 
 ### External Libraries
 
-- fontawesome
-- sass
-- vuex
-- vue-cli
+- **fontawesome**
+- **sass**
+- **vuex**
+- **vue-cli**
 
 ### Customize configuration
 
