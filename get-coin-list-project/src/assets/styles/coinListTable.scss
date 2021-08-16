@@ -16,6 +16,9 @@
     }
     td {
       border-bottom: 1px grey;
+      .book-mark-icon:hover {
+        cursor: pointer;
+      }
       &.ascending {
         color: red;
       }

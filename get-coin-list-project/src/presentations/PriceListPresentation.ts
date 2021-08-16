@@ -6,6 +6,7 @@ import { IPriceListUseCase, PriceListUseCase } from '@/useCases/PriceListUseCase
 export interface IPriceListPresentation {
   getCoinMarketsTable (param: GetCoinMarketsParams): Promise<Array<CoinInfoInTable>>
   parseDecimalPlace (num: number, place: number): string
+  isIncludedInBookMark (bookMarks: string, symbol: string): boolean
   convertResponseToInfoTable
     (response: Array<GetCoinMarketsResponse>, currency: string): Array<CoinInfoInTable>
 }
@@ -27,10 +28,16 @@ export class PriceListPresentation implements IPriceListPresentation {
     return parseFloat(num.toFixed(place)).toLocaleString();
   }
 
+  isIncludedInBookMark(bookMarks: string, symbol: string): boolean {
+    return bookMarks.includes(symbol);
+  }
+
   convertResponseToInfoTable(response: Array<GetCoinMarketsResponse>, currency: string)
     : Array<CoinInfoInTable> {
+    const bookMarks: string | null = localStorage.getItem('bookMarks');
+
     return response.map((info: GetCoinMarketsResponse): CoinInfoInTable => ({
-      isBookmarked: false,
+      isBookmarked: this.isIncludedInBookMark(`${bookMarks}`, info.symbol),
       name: info.name,
       symbol: info.symbol,
       price: `${this.CurrencySymbol[currency]} ${this.parseDecimalPlace(info.current_price, 2)}`,

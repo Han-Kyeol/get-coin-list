@@ -15,8 +15,10 @@
         v-for="info in coinTableList"
       >
         <td>
-          <font-awesome-icon v-if="info.isBookmarked" icon="star" />
-          <font-awesome-icon v-else :icon="['far', 'star']" />
+          <p class="book-mark-icon" @click="onClickBookMark(info)">
+            <font-awesome-icon v-if="info.isBookmarked" icon="star" />
+            <font-awesome-icon v-else :icon="['far', 'star']" />
+          </p>
         </td>
         <td class="bold">{{ info.name }}</td>
         <td>{{ info.symbol }}</td>
@@ -50,6 +52,31 @@ export default class CoinListTable extends Vue {
 
   isAscendingPercent(value: string): boolean {
     return !value.includes('-');
+  }
+
+  saveBookMarkOnStorage(bookMarksList: Array<string>): void {
+    localStorage.setItem('bookMarks', bookMarksList.join());
+  }
+
+  onClickBookMark(info: CoinInfoInTable): void {
+    const bookMarks: string | null = localStorage.getItem('bookMarks');
+    const bookMarksList: Array<string> = `${bookMarks}`.split(',');
+
+    if (info.isBookmarked) {
+      const indexOfBookMark: number = bookMarksList.indexOf(info.symbol);
+      bookMarksList.splice(indexOfBookMark, 1);
+
+      this.saveBookMarkOnStorage(bookMarksList);
+
+      alert(`${info.name} 북마크가 해제되었습니다`);
+    } else {
+      bookMarksList.push(info.symbol);
+      this.saveBookMarkOnStorage(bookMarksList);
+
+      alert(`${info.name} 북마크가 추가되었습니다`);
+    }
+
+    this.$emit('bookMarkClicked');
   }
 }
 </script>

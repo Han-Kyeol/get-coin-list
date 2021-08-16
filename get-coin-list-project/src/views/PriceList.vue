@@ -11,6 +11,7 @@
     </select>
     <CoinListTable
       :coin-table-list="tableData"
+      @bookMarkClicked="setTableData"
     />
     <button class="show-more-btn" type="button" @click="onClickShowMore">
       더 보기
