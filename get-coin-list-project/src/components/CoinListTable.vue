@@ -14,7 +14,10 @@
         :key="info.name"
         v-for="info in coinTableList"
       >
-        <td>{{ info.isBookmarked }}</td>
+        <td>
+          <font-awesome-icon v-if="info.isBookmarked" icon="star" />
+          <font-awesome-icon v-else :icon="['far', 'star']" />
+        </td>
         <td class="bold">{{ info.name }}</td>
         <td>{{ info.symbol }}</td>
         <td class="align-right bold">{{ info.price }}</td>
