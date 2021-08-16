@@ -11,7 +11,7 @@
     </select>
     <CoinListTable
       :coin-table-list="tableData"
-      @bookMarkClicked="setTableData"
+      @bookMarkClicked="bookMarkClicked"
     />
     <button class="show-more-btn" type="button" @click="onClickShowMore">
       더 보기
@@ -69,6 +69,12 @@ export default class PriceList extends Vue {
       );
 
     this.tableData.push(...loadedTableData);
+  }
+
+  async bookMarkClicked(): Promise<void> {
+    this.page = 1;
+
+    await this.setTableData();
   }
 }
 </script>

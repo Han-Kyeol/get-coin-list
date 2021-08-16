@@ -1,4 +1,5 @@
 interface CoinInfoInTable {
+  id: string;
   isBookmarked: boolean;
   name: string;
   symbol: string;

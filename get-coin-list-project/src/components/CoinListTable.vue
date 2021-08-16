@@ -63,14 +63,14 @@ export default class CoinListTable extends Vue {
     const bookMarksList: Array<string> = `${bookMarks}`.split(',');
 
     if (info.isBookmarked) {
-      const indexOfBookMark: number = bookMarksList.indexOf(info.symbol);
+      const indexOfBookMark: number = bookMarksList.indexOf(info.id.toLowerCase());
       bookMarksList.splice(indexOfBookMark, 1);
 
       this.saveBookMarkOnStorage(bookMarksList);
 
       alert(`${info.name} 북마크가 해제되었습니다`);
     } else {
-      bookMarksList.push(info.symbol);
+      bookMarksList.push(info.id.toLowerCase());
       this.saveBookMarkOnStorage(bookMarksList);
 
       alert(`${info.name} 북마크가 추가되었습니다`);

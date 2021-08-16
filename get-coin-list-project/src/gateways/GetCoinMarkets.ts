@@ -14,8 +14,9 @@ export class GetCoinMarkets implements IGetCoinMarkets {
     const url = new URL('https://api.coingecko.com/api/v3/coins/markets');
     url.search = new URLSearchParams({
       vs_currency: param.vs_currency,
+      ids: param.ids ? param.ids : '',
       order: 'market_cap_desc',
-      per_page: `${this.PER_PAGE}`,
+      per_page: param.per_page ? `${param.per_page}` : `${this.PER_PAGE}`,
       page: `${param.page}`,
       price_change_percentage: '1h, 24h, 7d',
     }).toString();
