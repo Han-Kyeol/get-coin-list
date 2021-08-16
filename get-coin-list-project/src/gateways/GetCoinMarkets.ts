@@ -14,6 +14,7 @@ export class GetCoinMarkets implements IGetCoinMarkets {
       vs_currency: param.vs_currency,
       order: 'market_cap_desc',
       per_page: `${this.PER_PAGE}`,
+      page: `${param.page}`,
       price_change_percentage: '1h, 24h, 7d',
     }).toString();
     const response = await fetch(url.toString());

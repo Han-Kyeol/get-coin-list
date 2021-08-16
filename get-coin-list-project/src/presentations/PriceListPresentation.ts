@@ -23,6 +23,7 @@ export class PriceListPresentation implements IPriceListPresentation {
   }
 
   parseDecimalPlace(num: number, place: number): string {
+    if (!num) return '-';
     return parseFloat(num.toFixed(place)).toLocaleString();
   }
 

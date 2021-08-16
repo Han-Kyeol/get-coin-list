@@ -58,7 +58,16 @@ export default class PriceList extends Vue {
   }
 
   async onClickShowMore(): Promise<void> {
-    console.log('run');
+    this.page += 1;
+    const loadedTableData
+      : Array<CoinInfoInTable> = await this.priceListPresentation.getCoinMarketsTable(
+        {
+          vs_currency: this.currency,
+          page: this.page,
+        },
+      );
+
+    this.tableData.push(...loadedTableData);
   }
 }
 </script>
